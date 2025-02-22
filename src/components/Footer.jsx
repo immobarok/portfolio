@@ -47,7 +47,7 @@ const Footer = () => {
           {formatTime(currentTime)}
         </div>
       </div>
-      <p className={`text-center transition-all duration-500 text-sm ${isCollapsed ? "ml-4" : "ml-10"}`}>© {new Date().getFullYear()} Mobarok Ali. Built with React, JavaScript, and a lot of caffeine.</p>
+      <p className={`text-center transition-all duration-500 text-sm ${isCollapsed ? "" : "ml-32"}`}>© {new Date().getFullYear()} Mobarok Ali. Built with React, JavaScript, and a lot of Caffeine.</p>
     </footer>
   );
 };

@@ -13,9 +13,11 @@ import {
   Twitter,
   Linkedin,
   Github,
+  ArrowUpRight
 } from "lucide-react";
 import mobarok from "../assets/mobarok.jpg";
 import { useSidebar } from "../context/sideberContext";
+import { Link } from "react-router-dom";
 
 const SideNav = () => {
   const { isCollapsed, setIsCollapsed } = useSidebar(false);
@@ -28,18 +30,17 @@ const SideNav = () => {
     { id: 5, label: "About", icon: User },
   ];
 
-  const contactItem = [
-    { id: 6, label: "Contact", icon: Phone, link: "tel:+8801522119021" },
-    { id: 7, label: "Facebook", icon: Facebook, link: "https://www.facebook.com/mobaroky" },
-    { id: 8, label: "Twitter", icon: Twitter, link: "https://twitter.com" },
-    { id: 9, label: "LinkedIn", icon: Linkedin, link: "https://linkedin.com/" },
-    { id: 10, label: "Github", icon: Github, link: "https://github.com/immobarok" },
+  const socialItem = [
+    { id: 6, label: "Contact", icon: Phone, link: "tel:+8801522119021", arrowIcon: ArrowUpRight },
+    { id: 7, label: "Facebook", icon: Facebook, link: "https://www.facebook.com/mobaroky", arrowIcon: ArrowUpRight },
+    { id: 8, label: "Twitter", icon: Twitter, link: "https://twitter.com", arrowIcon: ArrowUpRight },
+    { id: 9, label: "LinkedIn", icon: Linkedin, link: "https://linkedin.com/", arrowIcon: ArrowUpRight },
+    { id: 10, label: "Github", icon: Github, link: "https://github.com/immobarok", arrowIcon: ArrowUpRight },
   ];
-
   return (
     <div
       className={`${isCollapsed ? "w-16" : "w-64"
-        } h-screen bg-[#1C1C1C] text-gray-400 fixed left-0 top-0 flex flex-col transition-all duration-300 border-r border-[#333333]`}
+        } h-screen bg-[#1C1C1C] text-[#858585] fixed left-0 top-0 flex flex-col transition-all duration-300 border-r border-[#333333]`}
     >
       {/* Fixed Top */}
       <div className="p-4 border-b border-zinc-800 flex items-center justify-between">
@@ -58,7 +59,7 @@ const SideNav = () => {
         {/* Collapse Button */}
         <button
           onClick={() => setIsCollapsed(!isCollapsed)}
-          className="bg-zinc-800 rounded-full p-1 text-white hover:bg-zinc-700 transition-colors top-8 -right-3 absolute shadow-sm"
+          className="bg-zinc-800 rounded-full p-1 text-[#858585] hover:bg-zinc-700 transition-colors top-8 -right-3 absolute shadow-sm"
         >
           {isCollapsed ? <ChevronRight size={13} className="transition-all duration-300" /> : <ChevronLeft size={18} />}
         </button>
@@ -70,7 +71,7 @@ const SideNav = () => {
           {menuItems.map((item) => {
             const Icon = item.icon;
             return (
-              <a
+              <Link
                 key={item.id}
                 href="#"
                 className={`flex items-center px-2 py-2 rounded hover:bg-zinc-800 hover:text-white transition-colors`}
@@ -81,7 +82,7 @@ const SideNav = () => {
                   className={`transition-all duration-300 ${isCollapsed ? "scale-[1.2] my-1" : "scale-100"}`}
                 />
                 {!isCollapsed && <span className="ml-3">{item.label}</span>}
-              </a>
+              </Link>
             );
           })}
         </nav>
@@ -94,10 +95,11 @@ const SideNav = () => {
             </h3>
           )}
           <nav>
-            {contactItem.map((item) => {
+            {socialItem.map((item) => {
               const Icon = item.icon;
+              const Icon2 = item.arrowIcon;
               return (
-                <a
+                <Link
                   key={item.id}
                   href={item.link}
                   target="_blank"
@@ -110,7 +112,8 @@ const SideNav = () => {
                     className={`transition-all duration-300 ${isCollapsed ? "scale-[1.2] my-1" : "scale-100"}`}
                   />
                   {!isCollapsed && <span className="ml-3">{item.label}</span>}
-                </a>
+                  {!isCollapsed && <Icon2 className="w-4 h-4 ml-auto" />}
+                </Link>
               );
             })}
           </nav>
