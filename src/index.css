@@ -4,9 +4,21 @@
 @tailwind components;
 @tailwind utilities;
 
+:root{
+  --bg-color:#ffffff;
+  --text-color:#000000;
+}
+
+.dark{
+  --bg-color:#161616;
+  --text-color:#ffffff;
+}
+
 body {
-  background: #161616;
+  background-color:var(--bg-color);
   font-family: "Poppins", sans-serif;
+  color:var(--text-color);
+  transition: background-color 0.5s, color 0.5s;
 }
 h1,
 h2,
@@ -16,3 +28,12 @@ h3 {
 p {
   font-family: "Poppins", sans-serif;
 }
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none;
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;  /* For Internet Explorer */
+  scrollbar-width: none;  /* For Firefox */
+}
+

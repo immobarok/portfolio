@@ -19,7 +19,7 @@ const Button = ({ children, onClick, className = "", disabled = false, size = "m
     <button
       onClick={onClick}
       disabled={disabled}
-      className={`font-semibold rounded-lg transition-all duration-300 ${getSizeClasses()} ${className}`}
+      className={`font-semibold transition-all ease-linear duration-300 ${getSizeClasses()} ${className}`}
     >
       {children}
     </button>

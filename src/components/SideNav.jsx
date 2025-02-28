@@ -5,8 +5,9 @@ import {
   ChevronRight,
   Compass,
   Store,
+  Award,
   Projector,
-  Settings,
+  Cog,
   User,
   Phone,
   Facebook,
@@ -15,7 +16,8 @@ import {
   Github,
   ArrowUpRight,
   Moon,
-  Sun
+  Sun,
+  MessageCircleHeart
 } from "lucide-react";
 import mobarok from "../assets/mobarok.jpg";
 import { useSidebar } from "../context/sideberContext";
@@ -27,15 +29,16 @@ const SideNav = () => {
   const { theme, toggleTheme } = useTheme();
 
   const menuItems = [
-    { id: 1, label: "Explore", icon: Compass },
-    { id: 2, label: "Boutique", icon: Store },
-    { id: 3, label: "Projects", icon: Projector },
-    { id: 4, label: "Services", icon: Settings },
-    { id: 5, label: "About", icon: User },
+    { id: 1, label: "Explore", icon: Compass, path: "/" },
+    { id: 2, label: "About", icon: User, path: "/about" },
+    { id: 3, label: "Projects", icon: Projector, path: "/projects" },
+    { id: 4, label: "Skills", icon: Award, path: "/skills" },
+    { id: 5, label: "Tools", icon: Cog, path: "/tools" },
+    { id: 6, label: "Contact", icon: MessageCircleHeart, path: "/contact" },
   ];
 
+
   const socialItem = [
-    { id: 6, label: "Contact", icon: Phone, link: "tel:+8801522119021", arrowIcon: ArrowUpRight },
     { id: 7, label: "Facebook", icon: Facebook, link: "https://www.facebook.com/mobaroky", arrowIcon: ArrowUpRight },
     { id: 8, label: "Twitter", icon: Twitter, link: "https://twitter.com", arrowIcon: ArrowUpRight },
     { id: 9, label: "LinkedIn", icon: Linkedin, link: "https://linkedin.com/", arrowIcon: ArrowUpRight },
@@ -70,15 +73,15 @@ const SideNav = () => {
       </div>
 
       {/* Middle */}
-      <div className="flex-1 overflow-y px-4 py-2">
+      <div className="flex-1 overflow-auto scrollbar-hidden px-4 py-2">
         <nav>
           {menuItems.map((item) => {
             const Icon = item.icon;
             return (
               <Link
                 key={item.id}
-                to="#"
-                className="flex items-center px-2 py-2 rounded hover:bg-gray-200 dark:hover:bg-zinc-800 hover:text-black dark:hover:text-white transition-colors"
+                to={item.path}
+                className="flex items-center px-2 py-2 rounded hover:bg-gray-200 text-sm dark:hover:bg-zinc-800 hover:text-black dark:hover:text-white transition-colors"
                 title={isCollapsed ? item.label : ""}
               >
                 <Icon size={20} />
@@ -91,9 +94,9 @@ const SideNav = () => {
         {/* Social Section */}
         <div className="mt-6">
           {!isCollapsed && (
-            <h3 className="px-2 mb-2 text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400">
+            <p className="px-2 mb-2 text-[11px] uppercase tracking-wider text-gray-600 dark:text-[#838383]">
               Let's Connect
-            </h3>
+            </p>
           )}
           <nav>
             {socialItem.map((item) => {
@@ -105,7 +108,7 @@ const SideNav = () => {
                   to={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center px-2 py-2 rounded hover:bg-gray-200 dark:hover:bg-zinc-800 hover:text-black dark:hover:text-white transition-colors"
+                  className="flex items-center px-2 py-2 rounded hover:bg-gray-200 text-sm dark:hover:bg-zinc-800 hover:text-black dark:hover:text-white transition-colors"
                   title={isCollapsed ? item.label : ""}
                 >
                   <Icon size={20} />
@@ -122,14 +125,14 @@ const SideNav = () => {
           <nav>
             <button
               onClick={toggleTheme}
-              className="flex items-center px-2 py-2 rounded hover:bg-gray-200 dark:hover:bg-zinc-800 hover:text-black dark:hover:text-white transition-colors w-full"
+              className="flex items-center px-2 py-2 text-sm placeholder:rounded hover:bg-gray-200 dark:hover:bg-zinc-800 hover:text-black dark:hover:text-white transition-colors w-full"
             >
               {theme === "dark" ? <Sun size={20} /> : <Moon size={20} />}
               {!isCollapsed && (
                 <>
                   <span className="ml-3">{theme === "dark" ? "Light Mode" : "Dark Mode"}</span>
-                  <div className="ml-auto w-10 h-5 bg-gray-300 dark:bg-gray-700 rounded-full flex items-center p-1 transition-all">
-                    <div className={`w-4 h-4 bg-white rounded-full transition-all transform ${theme === "dark" ? "translate-x-5" : "translate-x-0"}`}
+                  <div className="ml-auto w-10 h-5 bg-gray-300 dark:bg-slate-700 rounded-full flex items-center p-1 transition-all">
+                    <div className={`w-4 h-4 bg-slate-300 shadow-lg rounded-full transition-all transform ${theme === "dark" ? "translate-x-5" : "translate-x-0"}`}
                     ></div>
                   </div>
                 </>
