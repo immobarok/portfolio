@@ -7,13 +7,13 @@ import Hero from './Hero';
 const Layout = ({ children }) => {
   return (
     <div>
-      <SidebarProvider>
-        <SideNav />
-        <Hero />
-        <div className='flex flex-col min-h-screen'>
-          <main className='flex-grow'>{children}</main>
-        </div>
-      </SidebarProvider>
+        <SidebarProvider className="bg-white dark:bg-gray-900 text-black dark:text-white min-h-screen transition-all">
+          <SideNav />
+          <Hero />
+          <div className='flex flex-col min-h-screen'>
+            <main className='flex-grow'>{children}</main>
+          </div>
+        </SidebarProvider>
     </div>
   )
 }
