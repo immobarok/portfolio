@@ -24,6 +24,9 @@ export default {
         sans: ["Inter", "sans-serif"],
         heading: ["Poppins", "sans-serif"],
       },
+      fontSize:{
+        heading:"2rem"
+      },
       animation: {
         blink: "blink 1s infinite",
       },

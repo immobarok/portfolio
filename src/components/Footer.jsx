@@ -24,7 +24,7 @@ const Footer = () => {
     });
   };
   return (
-    <footer className="bg-[#1C1C1C] text-gray-400 w-[100%]">
+    <footer className="bg-[#1C1C1C] text-gray-400 w-[100%] mt-6">
       <div className={`${isCollapsed ? "ml-60 transition-all duration-500" : "ml-80 transition-all duration-500"} flex justify-between flex-col md:flex-row items-start md:items-center mx-20 py-20`}>
         <div className="flex flex-col space-y-2">
           <div className="flex items-center space-x-2">

@@ -30,7 +30,7 @@ const About = () => {
 
   return (
     <>
-      <div className="w-full pl-4 md:pl-[320px] pr-4 md:pr-[120px] mt-16 md:mt-32 bg-transparent py-4">
+      <div className="w-full pl-4 md:pl-[320px] pr-4 md:pr-[120px] mt-16 md:mt-28 bg-transparent py-4">
         <div className={`transition-all duration-300 ${isCollapsed ? '' : 'md:ml-20'}`}>
           {/* Profile Image and About Text */}
           <motion.div
@@ -56,7 +56,7 @@ const About = () => {
               className="w-full md:w-2/3 text-start"
               variants={fadeInUp}
             >
-              <h1 className="text-4xl md:text-7xl text-primary-text">Hi there!</h1>
+              <h1 className="text-4xl md:text-5xl text-primary-text font-bold">Hi there!</h1>
               <p className="py-4 text-secondary-text-200">
                 Fueled by a passion for crafting compelling digital experiences, I am a web developer and UI/UX designer with a relentless drive to excel and continuously refine my skills. Explore more about my journey below.
               </p>
