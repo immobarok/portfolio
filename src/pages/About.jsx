@@ -3,7 +3,8 @@ import { useSidebar } from '../context/sideberContext';
 import Button from './../components/Button';
 import { Copy } from 'lucide-react';
 import { motion } from 'framer-motion'; // Import Framer Motion
-import profileImage from './../assets/react.png';
+import FullStackDisplay from '../components/StackContent';
+import Footer from './../components/Footer';
 const About = () => {
   const { isCollapsed } = useSidebar(false);
 
@@ -94,24 +95,16 @@ const About = () => {
 
           {/* Stack Section */}
           <motion.div
-            className="mt-12 w-full border border-[#2c2727] rounded-lg shadow-lg pt-8"
+            className="mt-12 border border-[#2c2727] rounded-lg shadow-lg pt-8 mb-4"
             variants={fadeInUp}
             initial="hidden"
             animate="visible"
           >
-            <div className="w-full px-6 py-2">
-              <h1 className="text-4xl text-primary-text">My Stack</h1>
-              <p className="text-secondary-text-200 pt-3 text-justify text-sm">
-                Software and resources I use on a regular basis.
-              </p>
-              <div className="my-4 flex gap-5">
-                {/* Add your stack icons or content here */}
-                <img src={profileImage} alt="" style={{ width: '200px', borderRadius: '50%' }} />
-              </div>
-            </div>
+            <FullStackDisplay />
           </motion.div>
         </div>
       </div>
+      <Footer />
     </>
   );
 };

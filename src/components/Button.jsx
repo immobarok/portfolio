@@ -7,11 +7,11 @@ const Button = ({ children, onClick, className = "", disabled = false, size = "m
       case "small":
         return "px-3 py-1 text-sm";
       case "medium":
-        return "px-4 py-2 text-base";
+        return "px-4 py-2 text-sm";
       case "large":
-        return "px-6 py-3 text-lg";
+        return "px-6 py-3 text-base";
       default:
-        return "px-4 py-2 text-base";
+        return "px-4 py-2 text-sm";
     }
   };
 
