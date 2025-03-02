@@ -12,6 +12,7 @@ import GitIcon from "../assets/git.svg";
 import FigmaIcon from "../assets/figma.svg";
 import Footer from './Footer';
 
+
 const FullStackDisplay = () => {
 
   // List of tools with their details
@@ -93,7 +94,7 @@ const FullStackDisplay = () => {
       {/* Heading */}
       <h2 className="text-2xl font-semibold mb-2">My Stack</h2>
       <div className="text-gray-400 text-sm mb-6">
-        Tools and technologies for modern full stack development
+        Software and resources I use on a regular basis
       </div>
 
       {/* Tools Grid */}
@@ -118,7 +119,7 @@ const FullStackDisplay = () => {
           </div>
         ))}
       </div>
-      <button className='border-[] rounded-lg w-full bg-secondary-bg mt-4 py-2'><Link to={""}>View All Tools</Link></button>
+      <Link to={"/tools"}><button className='border-[] rounded-lg w-full bg-secondary-bg mt-4 py-2'>View All Tools</button></Link>
     </div>
   );
 };
